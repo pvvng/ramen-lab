@@ -1,3 +1,4 @@
+import { AWSImageItmeType } from '@/types/aws-image';
 import AWS from 'aws-sdk';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -30,8 +31,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const data = await s3.listObjectsV2(params).promise();
 
         // S3 객체를 URL로 매핑
-        const images = data.Contents?.map((item) => ({
-            name: item.Key?.split('.')[0],
+        const images : AWSImageItmeType[] = data.Contents?.map((item) => ({
+            name: item.Key?.split('.')[0] || '',
             url: `https://${bucketName}.s3.${region}.amazonaws.com/${item.Key}`,
         })) || [];
 

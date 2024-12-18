@@ -1,6 +1,5 @@
-import RecipeContainer from "./components/RecipeContainer";
-import BuildContainer from "./components/BuildContainer";
-import getImages from "./@util/function/fetch/getImages";
+import RecipeContainer from "./components/CardContainer/RecipeContainer";
+import BuildContainer from "./components/CardContainer/BuildContainer";
 
 export default async function Home() {
     return (

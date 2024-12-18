@@ -4,7 +4,7 @@ export default function RecipeAppendInputContainer() {
             <input
                 type="text"
                 className="border border-black h-8 col-span-4 rounded p-2"
-                placeholder="이름"
+                placeholder="레시피 이름"
             />
             <input
                 type="text"
