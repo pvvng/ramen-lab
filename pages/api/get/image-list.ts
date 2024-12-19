@@ -1,22 +1,27 @@
-import { AWSImageItmeType } from '@/types/aws-image';
-import AWS from 'aws-sdk';
+import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { AWSImageItmeType } from '@/types/aws-image';
 
+// 환경 변수 설정
 const accessKey = process.env.AWS_ACCESS_KEY_ID || '';
 const secretKey = process.env.AWS_SECRET_ACCESS_KEY || '';
 const region = process.env.AWS_REGION || '';
 const bucketName = process.env.S3_BUCKET_NAME || '';
 
-const s3 = new AWS.S3({
-    accessKeyId: accessKey,
-    secretAccessKey: secretKey,
-    region: region,
+// S3 클라이언트 초기화
+const s3Client = new S3Client({
+    region,
+    credentials: {
+        accessKeyId: accessKey,
+        secretAccessKey: secretKey,
+    },
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+
     // 메서드 확인
     if (req.method !== 'GET') {
-        return res.status(405).json({ message: 'Method Not Allowed. Only GET is allowed.' });
+        return res.status(405).json({ message: 'Method Not Allowed.' });
     }
 
     // 환경 변수 확인
@@ -27,11 +32,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         // S3 버킷에서 객체 가져오기
-        const params = { Bucket: bucketName };
-        const data = await s3.listObjectsV2(params).promise();
+        const command = new ListObjectsV2Command({ Bucket: bucketName });
+        const data = await s3Client.send(command);
 
         // S3 객체를 URL로 매핑
-        const images : AWSImageItmeType[] = data.Contents?.map((item) => ({
+        const images: AWSImageItmeType[] = data.Contents?.map((item) => ({
             name: item.Key?.split('.')[0] || '',
             url: `https://${bucketName}.s3.${region}.amazonaws.com/${item.Key}`,
         })) || [];
@@ -40,13 +45,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(200).json(images);
     } catch (error: any) {
         // AWS SDK 에러 처리
-        if (error.code === 'CredentialsError') {
+        if (error.name === 'CredentialsError') {
             return res.status(500).json({
                 message: 'AWS 자격 증명에 문제가 발생했습니다. 환경 변수를 확인해주세요.',
             });
         }
 
-        if (error.code === 'NoSuchBucket') {
+        if (error.name === 'NoSuchBucket') {
             return res.status(404).json({
                 message: '지정된 S3 버킷을 찾을 수 없습니다. 버킷 이름을 확인해주세요.',
             });
