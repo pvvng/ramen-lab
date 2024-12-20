@@ -14,8 +14,6 @@ export default function RecipeContainer(){
         refetchOnWindowFocus : false,
     });
 
-    console.log(data);
-
     return (
         <div className="p-2 border-black border rounded mt-3 min-h-[300px] overflow-scroll">
             {

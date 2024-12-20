@@ -20,7 +20,7 @@ export function checkPasswordNaN(
 export function checkPasswordMissing(
   password: number
 ): string | undefined {
-  if (!password) {
+  if (password === undefined) {
     return "비밀번호가 누락되었습니다.";
   }
 }

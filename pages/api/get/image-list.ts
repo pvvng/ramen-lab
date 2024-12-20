@@ -1,33 +1,28 @@
-import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
+import { ListObjectsV2Command } from '@aws-sdk/client-s3';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { AWSImageItmeType } from '@/types/aws-image';
-
-// 환경 변수 설정
-const accessKey = process.env.AWS_ACCESS_KEY_ID || '';
-const secretKey = process.env.AWS_SECRET_ACCESS_KEY || '';
-const region = process.env.AWS_REGION || '';
-const bucketName = process.env.S3_BUCKET_NAME || '';
+import checkMethod from '@/app/@util/function/api/checkMethod';
+import getS3Client from '@/app/@util/function/api/s3Client';
+import { checkMissingKey } from '@/app/@util/function/api/checkMissingKey';
+import { bucketName, region } from '@/app/@util/function/api/enviroments';
 
 // S3 클라이언트 초기화
-const s3Client = new S3Client({
-    region,
-    credentials: {
-        accessKeyId: accessKey,
-        secretAccessKey: secretKey,
-    },
-});
+const s3Client = getS3Client();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-
-    // 메서드 확인
-    if (req.method !== 'GET') {
-        return res.status(405).json({ message: 'Method Not Allowed.' });
+export default async function handler(
+    req: NextApiRequest, res: NextApiResponse
+) {
+    console.log(req.body)
+    const methodValidation = checkMethod("GET", req.method || '');
+    if(methodValidation) {
+        const { status, message } = methodValidation;
+        return res.status(status).json(message);
     }
 
-    // 환경 변수 확인
-    const missingVar = [accessKey, secretKey, region, bucketName].find((v) => !v);
-    if (missingVar) {
-        return res.status(500).json({ message: '환경변수가 설정되지 않았습니다. 확인 후 다시 시도해주세요.' });
+    const keyValidation = checkMissingKey();
+    if (keyValidation) {
+        const { status, message } = keyValidation;
+        return res.status(status).json({ message });
     }
 
     try {

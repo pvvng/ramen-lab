@@ -1,8 +1,8 @@
-import { connectDB } from "@/app/@util/database";
+import checkMethod from "@/app/@util/function/api/checkMethod";
+import connectDatabase from "@/app/@util/function/api/connectDatabase";
 import { hashPassword } from "@/app/@util/function/general/crypt";
 import { validateIngredient, validateRequest } from "@/app/@util/function/general/validation/validateRecipeRequest";
 import { AWSImageItmeType } from "@/types/aws-image";
-import { Db } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 
 interface BodyType {
@@ -15,10 +15,10 @@ interface BodyType {
 export default async function handler(
     req: NextApiRequest, res: NextApiResponse
 ){
-
-    // 메서드 확인
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method Not Allowed.' });
+    const methodValidation = checkMethod("POST", req.method || '');
+    if(methodValidation) {
+        const { status, message } = methodValidation;
+        return res.status(status).json(message);
     }
 
     const { name, stringPassword, explain, stringIngredient } : BodyType = req.body;
@@ -38,12 +38,10 @@ export default async function handler(
         return res.status(400).json({ message : ingredientValidationError });
     }
 
-    // 데이터베이스 연결 처리
-    let db: Db;
-    try {
-        db = (await connectDB).db('ramen-lab');
-    } catch (error) {
-        return res.status(500).json({ message: "Database connection failed", error });
+    const db = await connectDatabase();
+    if("isFailed" in db){
+        const { status, message } = db;
+        return res.status(status).json(message);
     }
 
     // 패스워드 암호화 처리
