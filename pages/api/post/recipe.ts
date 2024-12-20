@@ -1,6 +1,6 @@
 import { connectDB } from "@/app/@util/database";
 import { hashPassword } from "@/app/@util/function/general/crypt";
-import { validateIngredient, validateRequest } from "@/app/@util/function/general/validateRecipeRequest";
+import { validateIngredient, validateRequest } from "@/app/@util/function/general/validation/validateRecipeRequest";
 import { AWSImageItmeType } from "@/types/aws-image";
 import { Db } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";

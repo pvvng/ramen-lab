@@ -1,8 +1,9 @@
 'use client';
 
-import { useSlectedImageStore } from "@/app/store";
-import { validateIngredient, validateRequest } from "../function/general/validateRecipeRequest";
+
 import { useState } from "react";
+import { validateIngredient, validateRequest } from "../function/general/validation/validateRecipeRequest";
+import { useSlectedImageStore } from "@/app/store/useSlectedImageStore";
 
 /** 레시피 제작에 사용되는 selected images와 form 제출 핸들러 함수 반환하는 커스텀 훅 */
 export default function usePostRecipe(){
