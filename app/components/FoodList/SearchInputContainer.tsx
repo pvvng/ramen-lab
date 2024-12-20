@@ -1,5 +1,5 @@
 "use client";
-
+// input handler custom hook
 import useSearchInputHandler from "@/app/@util/hooks/useSearchInputHandler";
 
 export default function SearchInputContainer() {

@@ -1,4 +1,6 @@
+// doma
 import DomaContainer from "./Doma/DomaContainer";
+// food card component
 import CardHub from "./FoodList/CardHub";
 import SearchInputContainer from "./FoodList/SearchInputContainer";
 

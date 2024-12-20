@@ -1,5 +1,8 @@
+// doma
 import DomaContainer from "../Doma/DomaContainer";
+// card hub
 import CardHub from "./CardHub";
+// input
 import SearchInputContainer from "./SearchInputContainer";
 
 export default function BuildContainer() {

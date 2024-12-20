@@ -1,4 +1,6 @@
+// type
 import { AWSImageItmeType } from "@/types/aws-image";
+
 import Image from "next/image";
 
 export default function CardImage({ name, url }: AWSImageItmeType) {

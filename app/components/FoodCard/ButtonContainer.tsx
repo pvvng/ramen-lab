@@ -1,4 +1,6 @@
+// zustand store
 import { useSlectedImageStore } from "@/app/store/useSlectedImageStore";
+// constant variable
 import { APPEND_STATE } from "./CardButton";
 
 interface ButtonPropsType {

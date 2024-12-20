@@ -1,4 +1,6 @@
+// form component
 import RecipeAppendInputContainer from "./RecipeForm/RecipeAppendInputContainer";
+// ingredient component
 import SelectedImageContainer from "./SelectedImageContainer";
 
 export default function DomaContainer() {
