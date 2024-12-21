@@ -1,4 +1,4 @@
-import RecipeContainer from "./components/CardContainer/RecipeContainer";
+import RecipeContainer from "./components/RecipeList/RecipeContainer";
 import BuildContainer from "./components/BuildContainer";
 
 export default async function Home() {
