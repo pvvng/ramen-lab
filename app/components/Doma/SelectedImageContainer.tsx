@@ -15,5 +15,14 @@ export default function SelectedImageContainer() {
       </p>
     );
   }
-  return images.map((v) => <RamenCardContainer key={v.name} {...v} />);
+  return (
+    <>
+      <p className="text-center mb-2">
+        상위 세개 재료가 대표 이미지로 설정됩니다.
+      </p>
+      {images.map((v) => (
+        <RamenCardContainer key={v.name} {...v} />
+      ))}
+    </>
+  );
 }

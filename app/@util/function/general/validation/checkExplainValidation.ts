@@ -1,4 +1,4 @@
-const MAX_EXPLAIN_LENGTH = 100;
+const MAX_EXPLAIN_LENGTH = 1000;
 
 export function checkExplainString(
   explain: string

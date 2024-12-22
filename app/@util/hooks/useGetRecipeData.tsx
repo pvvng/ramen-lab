@@ -1,11 +1,16 @@
-'use client';
+"use client";
 
 // fetch func
 import getRecipeData from "@/app/@util/function/fetch/getRecipeData";
+// zustand store
+import { useRecipeStore } from "@/app/store/useRecipeStore";
+// type
+import { RecipeType } from "@/types/recipe";
 
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 
-export default function useGetRecipeData(){
+export default function useGetRecipeData() {
   const {
     data: recipes,
     isLoading,
@@ -18,5 +23,17 @@ export default function useGetRecipeData(){
     refetchOnWindowFocus: false,
   });
 
-  return {recipes, isLoading, isError};
+  useStoreRecipes(recipes);
+
+  return { isLoading, isError };
+}
+
+export function useStoreRecipes(recipes: RecipeType[] | undefined) {
+  const setRecipes = useRecipeStore((state) => state.setRecipes);
+
+  useEffect(() => {
+    if (recipes) {
+      setRecipes(recipes);
+    }
+  }, [recipes]);
 }

@@ -14,11 +14,7 @@ export default function RecipeAppendInputContainer() {
   return (
     <>
       <FormErrorMessage errorMessage={errorMessage} />
-      <form
-        method="POST"
-        action="/api/post/recipe"
-        onSubmit={handleSubmit} // 폼 제출 시 조건 확인
-      >
+      <form method="POST" action="/api/post/recipe" onSubmit={handleSubmit}>
         <div className="flex gap-2 m-0 w-full">
           <RecipeInputContainer />
           <RecipeButton />

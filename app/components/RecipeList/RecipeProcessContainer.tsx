@@ -4,9 +4,13 @@ import useGetRecipeData from "@/app/@util/hooks/useGetRecipeData";
 // component
 import LoadProcessContainer from "../LoadProcessContainer";
 import RecipeCardContainer from "./RecipeCard/RecipeCardContainer";
+// zustand store
+import { useRecipeStore } from "@/app/store/useRecipeStore";
 
 export default function RecipeProcessContainer() {
-  const { recipes, isLoading, isError } = useGetRecipeData();
+  const { isLoading, isError } = useGetRecipeData();
+
+  const { recipes } = useRecipeStore();
 
   if (isLoading || !recipes) {
     return <LoadProcessContainer text="로딩중입니다." />;
