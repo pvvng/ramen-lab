@@ -24,7 +24,7 @@ export function HeartSVG() {
   return (
     <svg
       className="h-4 w-4"
-      fill="red"
+      fill="none"
       height="24"
       stroke="currentColor"
       strokeLinecap="round"

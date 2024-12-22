@@ -16,13 +16,7 @@ export async function hashPassword(password: number) {
 }
 
 /** 비밀번호 검증 함수 */
-export async function verifyPassword(
-  inputPassword: number,
-  hashedPassword: number
-) {
-  const isMatch = await bcrypt.compare(
-    stringifyPassword(inputPassword),
-    stringifyPassword(hashedPassword)
-  );
-  return isMatch;
+export async function verifyPassword(password: number, hashedPassword: string) {
+  const isMatch = await bcrypt.compare(stringifyPassword(password), hashedPassword);
+  return isMatch; // true 또는 false 반환
 }

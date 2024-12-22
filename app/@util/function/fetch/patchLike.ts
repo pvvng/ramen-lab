@@ -1,11 +1,9 @@
-import { RecipeType } from "@/types/recipe";
 import axios from "axios";
+import { ObjectId } from "mongodb";
 
-export default async function getRecipeData() {
+export default async function patchLike(id : ObjectId) {
   try {
-    const recipe = await axios.get<RecipeType[]>("/api/get/recipe");
-    const sortedData = sortData(recipe.data);
-    return sortedData;
+    await axios.patch("/api/patch/like", { id });
   } catch (error) {
     // error가 AxiosError인지 확인
     if (axios.isAxiosError(error)) {
@@ -21,8 +19,4 @@ export default async function getRecipeData() {
     // 에러를 다시 던져 useQuery에서 처리하도록 함
     throw error;
   }
-}
-
-function sortData(array: RecipeType[]) {
-  return array.sort((a, b) => b.like - a.like);
 }

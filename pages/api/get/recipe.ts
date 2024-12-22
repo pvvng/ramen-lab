@@ -22,7 +22,6 @@ export default async function handler(
     try {
         // 데이터 조회
         const recipes = await db.collection<RecipeType[]>("recipe").find().toArray();
-        
         // 성공 응답
         return res.status(200).json(recipes);
     } catch (error) {

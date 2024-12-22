@@ -27,7 +27,7 @@ function RecipeInput({ name, placeholder }: PropsType) {
       type="text"
       name={name}
       placeholder={placeholder}
-      className="border border-black h-8 flex-1 rounded p-2"
+      className="border border-black h-8 w-1/3 rounded p-2"
     />
   );
 }
