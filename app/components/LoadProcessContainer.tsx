@@ -1,19 +1,5 @@
-export default function LoadProcessContainer({
-  isLoading,
-  isError,
-}: {
-  isLoading: boolean;
-  isError: boolean;
-}) {
-  if (isLoading) {
-    <div className="min-h-[200px] mt-3 flex justify-center place-items-center">
-      로딩중입니다.
-    </div>;
-  }
-
+export default function LoadProcessContainer({ text }: { text: string }) {
   return (
-    <div className="min-h-[200px] mt-3 flex justify-center place-items-center">
-      에러가 발생했습니다.
-    </div>
+    <div className="h-[250px] flex justify-center items-center text-center w-full">{text}</div>
   );
 }

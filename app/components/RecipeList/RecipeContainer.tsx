@@ -15,16 +15,14 @@ export default function RecipeContainer(){
         refetchOnWindowFocus : false,
     });
 
-    <LoadProcessContainer isLoading={isLoading} isError={isError} />;
-
     return (
         <div className="p-2 border-black border rounded mt-3 h-[300px] overflow-scroll">
             <div className="flex flex-wrap items-center">
                 {
                     isLoading || !recipes ?
-                    <p>로딩중입니다.</p>:
+                    <LoadProcessContainer text="로딩중입니다." />:
                     isError?
-                    <p>에러가 발생했습니다.</p>:
+                    <LoadProcessContainer text="에러가 발생했습니다.." />:
                     recipes.map(v => <RecipeCardContainer key={v.password} recipeData={v} />)
                 }
             </div>
