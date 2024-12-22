@@ -12,7 +12,7 @@ interface RecipeStoreState {
 }
 
 // Zustand 스토어 생성
-export const useRecipeStore = create<RecipeStoreState>((set) => ({
+export const useRecipeStore = create<RecipeStoreState>((set, get) => ({
   recipes: undefined, // 초기 상태는 undefined
   setRecipes: (newRecipes) => set({ recipes: newRecipes }),
   removeRecipeById: (id) =>

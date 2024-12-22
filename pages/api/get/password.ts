@@ -1,4 +1,5 @@
 import checkMethod from "@/app/@util/function/api/checkMethod";
+import checkQueryType from "@/app/@util/function/api/checkQueryType";
 import { verifyPassword } from "@/app/@util/function/general/crypt";
 import { NextApiRequest, NextApiResponse } from "next";
 
@@ -35,10 +36,4 @@ export default async function handler(
   const isVerified = await verifyPassword(numberInput, target);
 
   return res.status(200).json(isVerified);
-}
-
-function checkQueryType(value: string | string[] | undefined) {
-  const myParam: string = Array.isArray(value) ? value[0] || "" : value || "";
-
-  return myParam;
 }
