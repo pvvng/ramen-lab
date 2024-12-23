@@ -2,9 +2,9 @@
 
 // type
 import { ObjectId } from "mongodb";
-// svg
 // custom hook
 import useLikeButtonHandler from "@/app/@util/hooks/useLikeButtonHandler";
+// svg
 import { HeartSVG } from "../../SVGContainer";
 
 export default function HeartButton({

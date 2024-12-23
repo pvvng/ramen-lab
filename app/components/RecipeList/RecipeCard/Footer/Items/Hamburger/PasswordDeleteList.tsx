@@ -2,12 +2,11 @@
 // type
 import { ObjectId } from "mongodb";
 // custom hook
-import usePasswordInputHandler from "@/app/@util/hooks/usePasswordListHandler";
+import useRemoveRecipe from "@/app/@util/hooks/useRemoveRecipe";
 // component
 import PasswordInput from "./PasswordInput";
 // react
 import { useState } from "react";
-import { useRecipeStore } from "@/app/store/useRecipeStore";
 
 export default function PasswordDeleteList({
   id,
@@ -16,20 +15,15 @@ export default function PasswordDeleteList({
   id: ObjectId;
   password: string;
 }) {
-  const { handleRecipeDelete } = usePasswordInputHandler();
-  const { removeRecipeById } = useRecipeStore();
-  const [passwordStatus, setPasswordStatus] = useState(false);
+  const deleteHandler = useRemoveRecipe();
 
-  const deleteHandler = async () => {
-    await handleRecipeDelete(id, passwordStatus);
-    removeRecipeById(id);
-  };
+  const [passwordStatus, setPasswordStatus] = useState(false);
 
   if (passwordStatus) {
     return (
       <li
         className="p-2 hover:bg-gray-100 cursor-pointer text-red-600"
-        onClick={deleteHandler}
+        onClick={() => deleteHandler(id, passwordStatus)}
       >
         삭제
       </li>

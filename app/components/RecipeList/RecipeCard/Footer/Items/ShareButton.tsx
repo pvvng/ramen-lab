@@ -1,3 +1,5 @@
+'use client';
+
 import copyToClipboard from "@/app/@util/function/general/ClipBoard";
 import { ShareSVG } from "../../SVGContainer";
 

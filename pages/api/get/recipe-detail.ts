@@ -1,6 +1,7 @@
 import checkMethod from "@/app/@util/function/api/checkMethod";
 import checkQueryType from "@/app/@util/function/api/checkQueryType";
 import connectDatabase from "@/app/@util/function/api/connectDatabase";
+import { RecipeType } from "@/types/recipe";
 import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 
@@ -27,7 +28,11 @@ export default async function handler(
   try {
     const findRecipe = await db
       .collection("recipe")
-      .findOne({ _id: new ObjectId(mongoId) });
+      .findOneAndUpdate(
+        { _id: new ObjectId(mongoId) },
+        { $inc: { view: 1 } },
+        { returnDocument: "after" }
+      );
 
     if (!findRecipe) {
       return res.status(404).json({ message: "레시피를 찾을 수 없습니다." });

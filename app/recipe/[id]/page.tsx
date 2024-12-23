@@ -25,6 +25,7 @@ export default async function RecipeDetail({ params }: PropsType) {
     );
   } catch (error: any) {
     const errorMessage = error.message || "알 수 없는 오류가 발생했습니다.";
+    
     return <Error errorMessage={errorMessage} />;
   }
 }
