@@ -1,7 +1,9 @@
 "use client";
-
+// type
 import { ObjectId } from "mongodb";
+// fetch func
 import patchReport from "../function/fetch/patchReport";
+// localstorage
 import {
   checkStorageAlreadyExist,
   updateLocalStorge,
@@ -9,16 +11,18 @@ import {
 
 export default function usePatchReport() {
   const reportPatchHandler = async (id: ObjectId) => {
-    const isAlreadyHeartClick = checkStorageAlreadyExist(id, "report");
-    if (!isAlreadyHeartClick) {
-      return await patchHandler(id);
-    }
-
-    alert("이미 신고한 레시피입니다.");
-    return false;
+    return await existHandler(id);
   };
 
   return reportPatchHandler;
+}
+
+async function existHandler(id: ObjectId) {
+  const isAlreadyReportClick = checkStorageAlreadyExist(id, "report");
+  if (!isAlreadyReportClick) {
+    return await patchHandler(id);
+  }
+  return isAlreadyReported();
 }
 
 async function patchHandler(id: ObjectId) {
@@ -35,4 +39,10 @@ async function patchHandler(id: ObjectId) {
 
     return false;
   }
+}
+
+function isAlreadyReported() {
+  alert("이미 신고한 레시피입니다.");
+
+  return false;
 }

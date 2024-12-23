@@ -5,11 +5,11 @@ import { ObjectId } from "mongodb";
 import patchLike from "../function/fetch/patchLike";
 // react
 import { useState } from "react";
+// localstorage
 import {
   checkStorageAlreadyExist,
   updateLocalStorge,
 } from "../function/general/LocalStorage/storage";
-// localstorage
 
 export default function useLikeButtonHandler(like: number) {
   const [likeState, setLikeState] = useState(like);
@@ -17,7 +17,9 @@ export default function useLikeButtonHandler(like: number) {
   async function likeButtonHandler(id: ObjectId) {
     try {
       const updateSuccess = await handleLikeState(id);
+      
       const likeCount = updateSuccess ? 1 : 0;
+
       setLikeState((pre) => pre + likeCount);
     } catch (error) {
       throw error;
