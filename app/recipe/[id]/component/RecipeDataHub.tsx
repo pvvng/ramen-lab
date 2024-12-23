@@ -3,6 +3,7 @@ import { RecipeType } from "@/types/recipe";
 //component
 import RecipeDetailHeader from "./Header/RecipeDetailHeader";
 import RecipeDetailBody from "./Body/RecipeDetailBody";
+import RecipePassWordInput from "./Footer/RecipePassWordInput";
 
 export default function RecipeDataHub({ recipe }: { recipe: RecipeType }) {
   const { _id, name, password, explain, ingredient, like, view } = recipe;
@@ -15,6 +16,8 @@ export default function RecipeDataHub({ recipe }: { recipe: RecipeType }) {
       <RecipeDetailHeader headerProps={headerProps} />
       <hr className="border-b-2 mt-2" />
       <RecipeDetailBody bodyProps={bodyProps} />
+      <hr className="border-b-2 mt-2 mb-2" />
+      <RecipePassWordInput id={_id} password={password} />
     </>
   );
 }

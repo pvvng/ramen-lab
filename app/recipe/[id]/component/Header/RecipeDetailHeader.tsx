@@ -2,7 +2,6 @@
 import { ObjectId } from "mongodb";
 // component
 import LikeAndView from "./LikeAndView";
-import RecipePassWordInput from "./RecipePassWordInput";
 
 export interface HeaderPropsType {
   id: ObjectId;
@@ -24,7 +23,6 @@ export default function RecipeDetailHeader({
     <>
       <h1 className="text-3xl text-center font-extrabold mt-5">{name}</h1>
       <LikeAndView headerProps={headerProps} />
-      <RecipePassWordInput id={id} password={password} />
     </>
   );
 }

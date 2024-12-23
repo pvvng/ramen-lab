@@ -4,7 +4,7 @@ export default function RecipeExplain({
   explain: string;
 }) {
   return (
-    <div className="sm:mt-0 mt-3 sm:mx-0 mx-6 text-start sm:w-1/2 lg:w-2/5 w-full p-2">
+    <div className="sm:mt-0 mt-3 text-start sm:w-1/2 lg:w-2/5 w-full p-2">
       <p className="font-bold text-2xl">레시피 설명</p>
       <ExplainMap explain={explain} />
     </div>
