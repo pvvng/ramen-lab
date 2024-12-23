@@ -31,9 +31,17 @@ async function handleLikeState(id: ObjectId) {
   const isAlreadyHeartClick = checkLikeAlreadyExist(id);
 
   if (!isAlreadyHeartClick) {
-    await patchLike(id);
-    updateLocalStorge(id);
-    return true;
+    try{
+      await patchLike(id);
+      updateLocalStorge(id);
+
+      return true;
+    }catch(error: any){
+      const errorMessage = error || "알 수 없는 오류가 발생했습니다.";
+      alert(errorMessage);
+      
+      return false;
+    }
   }
 
   alert("이미 좋아요를 누른 레시피입니다.");

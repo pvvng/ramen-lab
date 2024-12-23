@@ -15,6 +15,7 @@ export default function SelectedImageContainer() {
       </p>
     );
   }
+
   return (
     <>
       <p className="text-center mb-2">
