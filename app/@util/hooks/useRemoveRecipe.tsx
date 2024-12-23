@@ -7,6 +7,7 @@ import usePasswordInputHandler from "./usePasswordListHandler";
 import { ObjectId } from "mongodb";
 
 import { useRouter } from "next/navigation";
+import { deleteLocalStorageById } from "../function/general/LocalStorage/storage";
 
 export default function useRemoveRecipe() {
   const { handleRecipeDelete } = usePasswordInputHandler();
@@ -16,8 +17,12 @@ export default function useRemoveRecipe() {
 
   const deleteHandler = async (id: ObjectId, passwordStatus: boolean) => {
     await handleRecipeDelete(id, passwordStatus);
+
     removeRecipeById(id);
-    router.push('/');
+
+    deleteLocalStorageById(id, "like");
+
+    router.push("/");
   };
 
   return deleteHandler;

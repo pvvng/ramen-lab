@@ -5,11 +5,11 @@ import { ObjectId } from "mongodb";
 import patchLike from "../function/fetch/patchLike";
 // react
 import { useState } from "react";
-// localstorage
 import {
-  checkLikeAlreadyExist,
+  checkStorageAlreadyExist,
   updateLocalStorge,
-} from "../function/general/LocalStorage/likes";
+} from "../function/general/LocalStorage/storage";
+// localstorage
 
 export default function useLikeButtonHandler(like: number) {
   const [likeState, setLikeState] = useState(like);
@@ -28,22 +28,26 @@ export default function useLikeButtonHandler(like: number) {
 }
 
 async function handleLikeState(id: ObjectId) {
-  const isAlreadyHeartClick = checkLikeAlreadyExist(id);
+  const isAlreadyHeartClick = checkStorageAlreadyExist(id, "like");
 
   if (!isAlreadyHeartClick) {
-    try{
-      await patchLike(id);
-      updateLocalStorge(id);
-
-      return true;
-    }catch(error: any){
-      const errorMessage = error || "알 수 없는 오류가 발생했습니다.";
-      alert(errorMessage);
-      
-      return false;
-    }
+    return await patchHandler(id);
   }
 
   alert("이미 좋아요를 누른 레시피입니다.");
   return false;
+}
+
+async function patchHandler(id: ObjectId) {
+  try {
+    await patchLike(id);
+    updateLocalStorge(id, "like");
+
+    return true;
+  } catch (error: any) {
+    const errorMessage = error || "알 수 없는 오류가 발생했습니다.";
+    alert(errorMessage);
+
+    return false;
+  }
 }
