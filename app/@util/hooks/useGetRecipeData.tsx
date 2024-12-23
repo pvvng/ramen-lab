@@ -41,5 +41,5 @@ export function useStoreRecipes(
     if (recipes && !recipesInStore) {
       setRecipes(recipes);
     }
-  }, [recipes, recipesInStore]);
+  }, [recipes]);
 }
