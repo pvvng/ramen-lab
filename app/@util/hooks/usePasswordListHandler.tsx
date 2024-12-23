@@ -33,19 +33,8 @@ export default function usePasswordInputHandler() {
         alert("성공적으로 삭제되었습니다.");
       }
     } catch (error) {
-      // 에러 처리
-      if (axios.isAxiosError(error) && error.response) {
-        // 서버에서 반환된 에러 메시지 사용
-        alert(
-          `${
-            error.response.data.message ||
-            "삭제 중 문제가 발생했습니다. 다시 시도해주세요."
-          }`
-        );
-      } else {
-        // 기타 예외
-        alert("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
-      }
+      const errorMessage = error || "알 수 없는 오류가 발생했습니다.";
+      alert(errorMessage);
     }
   };
 
