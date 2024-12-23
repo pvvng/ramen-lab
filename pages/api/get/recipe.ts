@@ -3,6 +3,8 @@ import connectDatabase from "@/app/@util/function/api/connectDatabase";
 import { RecipeType } from "@/types/recipe";
 import { NextApiRequest, NextApiResponse } from "next";
 
+const EXCEPT_REPORT = 10;
+
 export default async function handler(
     req: NextApiRequest, res: NextApiResponse
 ){
@@ -20,10 +22,11 @@ export default async function handler(
     }
 
     try {
-        // 데이터 조회
-        const recipes = await db.collection<RecipeType[]>("recipe").find().toArray();
-        // 성공 응답
-        return res.status(200).json(recipes);
+        const recipes = await db.collection<RecipeType>("recipe").find().toArray();
+
+        const exceptedReportedRecipe = recipes.filter(v => v.report <= EXCEPT_REPORT);
+
+        return res.status(200).json(exceptedReportedRecipe);
     } catch (error) {
         console.error("Failed to fetch recipes from the database:", error);
         return res.status(500).json({

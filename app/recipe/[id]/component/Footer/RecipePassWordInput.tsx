@@ -42,7 +42,7 @@ function DeleteButton({
 
   return (
     <button
-      className="h-8 px-2 text-red-600"
+      className="px-2 h-8 bg-gray-100 rounded cursor-pointer text-red-600"
       onClick={() => deleteHandler(id, passwordStatus)}
     >
       삭제
