@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "라교연",
-  description: "라면 교배 연구소",
+  title: "라조연",
+  description: "라면 조합 연구소",
 };
 
 export default function RootLayout({

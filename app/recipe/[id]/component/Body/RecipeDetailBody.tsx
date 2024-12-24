@@ -18,7 +18,7 @@ export default function RecipeDetailBody({
   const { explain, ingredient } = bodyProps;
 
   return (
-    <div className="text-center p-3 pt-5 pb-5 container mx-auto">
+    <div className="text-center p-3 container mx-auto">
       <div className="flex flex-wrap m-auto">
         <ImageMap ingredient={ingredient} />
         <RecipeExplain explain={explain} />

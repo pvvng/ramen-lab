@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ImageMap({ ingredient }: { ingredient: AWSImageItmeType[] }) {
   return (
-    <div className="flex flex-wrap justify-center items-center sm:w-1/2 lg:w-3/5 w-full">
+    <div className="flex flex-wrap justify-start items-center sm:w-1/2 lg:w-3/5 w-full">
       {ingredient.map((v, i) => (
         <div
           key={v.name + i}
