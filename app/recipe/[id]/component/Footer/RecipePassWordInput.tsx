@@ -1,6 +1,6 @@
 "use client";
 // custom hook
-import useRemoveRecipe from "@/app/@util/hooks/useRemoveRecipe";
+import useRemoveRecipe from "@/app/util/hooks/useRemoveRecipe";
 // component
 import PasswordInput from "@/app/components/RecipeList/RecipeCard/Footer/Items/Hamburger/PasswordInput";
 // type

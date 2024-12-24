@@ -2,7 +2,7 @@
 // type
 import { ObjectId } from "mongodb";
 // custom hook
-import useRemoveRecipe from "@/app/@util/hooks/useRemoveRecipe";
+import useRemoveRecipe from "@/app/util/hooks/useRemoveRecipe";
 // component
 import PasswordInput from "./PasswordInput";
 // react

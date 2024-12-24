@@ -1,7 +1,7 @@
 "use client";
 
 // fetch func
-import getRecipeData from "@/app/@util/function/fetch/getRecipeData";
+import getRecipeData from "@/app/util/function/fetch/getRecipeData";
 // zustand store
 import { useRecipeStore } from "@/app/store/useRecipeStore";
 // type

@@ -1,7 +1,6 @@
-import checkMethod from "@/app/@util/function/api/checkMethod";
-import checkQueryType from "@/app/@util/function/api/checkQueryType";
-import connectDatabase from "@/app/@util/function/api/connectDatabase";
-import { RecipeType } from "@/types/recipe";
+import checkMethod from "@/app/util/function/api/checkMethod";
+import checkQueryType from "@/app/util/function/api/checkQueryType";
+import connectDatabase from "@/app/util/function/api/connectDatabase";
 import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 

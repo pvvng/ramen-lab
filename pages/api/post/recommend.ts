@@ -1,6 +1,6 @@
-import checkMethod from "@/app/@util/function/api/checkMethod";
-import connectDatabase from "@/app/@util/function/api/connectDatabase";
-import { preventNoSQLInjection } from "@/app/@util/function/general/validation/checkNoSQLInjection";
+import checkMethod from "@/app/util/function/api/checkMethod";
+import connectDatabase from "@/app/util/function/api/connectDatabase";
+import { preventNoSQLInjection } from "@/app/util/function/general/validation/checkNoSQLInjection";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

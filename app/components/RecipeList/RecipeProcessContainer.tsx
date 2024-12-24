@@ -1,6 +1,6 @@
 "use client";
 // custom hook
-import useGetRecipeData from "@/app/@util/hooks/useGetRecipeData";
+import useGetRecipeData from "@/app/util/hooks/useGetRecipeData";
 // component
 import LoadProcessContainer from "../LoadProcessContainer";
 import RecipeCardContainer from "./RecipeCard/RecipeCardContainer";

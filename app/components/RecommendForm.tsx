@@ -1,6 +1,6 @@
 "use client";
 
-import useRecommendForm from "../@util/hooks/useRecommendForm";
+import useRecommendForm from "../util/hooks/useRecommendForm";
 
 export default function RecommendForm() {
   const { textAreaRef, handleButtonClick } = useRecommendForm();

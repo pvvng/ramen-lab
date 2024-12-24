@@ -1,6 +1,6 @@
 "use client";
 // custom hook
-import useGetFilteredData from "@/app/@util/hooks/useGetFilteredData";
+import useGetFilteredData from "@/app/util/hooks/useGetFilteredData";
 // food card
 import RamenCardContainer from "../FoodCard/RamenCardContainer";
 import LoadProcessContainer from "../LoadProcessContainer";

@@ -1,7 +1,7 @@
 "use client";
 
 // custom hook
-import usePostRecipe from "@/app/@util/hooks/usePostRecipe";
+import usePostRecipe from "@/app/util/hooks/usePostRecipe";
 // form component
 import RecipeInputContainer from "./RecipeInput";
 import RecipeButton from "./RecipeButton";

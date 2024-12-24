@@ -3,10 +3,10 @@
 // type
 import { ObjectId } from "mongodb";
 //custom hook
-import useRecipeDetailPageMoveButtonHandler from "@/app/@util/hooks/useRecipeDetailPageMoveButtonHandler";
+import useRecipeDetailPageMoveButtonHandler from "@/app/util/hooks/useRecipeDetailPageMoveButtonHandler";
 // component
 import PasswordDeleteList from "./PasswordDeleteList";
-import usePatchReport from "@/app/@util/hooks/usePatchReport";
+import usePatchReport from "@/app/util/hooks/usePatchReport";
 
 export default function HamburgerList({
   id,

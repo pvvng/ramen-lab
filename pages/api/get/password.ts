@@ -1,6 +1,6 @@
-import checkMethod from "@/app/@util/function/api/checkMethod";
-import checkQueryType from "@/app/@util/function/api/checkQueryType";
-import { verifyPassword } from "@/app/@util/function/general/crypt";
+import checkMethod from "@/app/util/function/api/checkMethod";
+import checkQueryType from "@/app/util/function/api/checkQueryType";
+import { verifyPassword } from "@/app/util/function/general/crypt";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import RecipeDataHub from "./component/RecipeDataHub";
-import getRecipeDetailData from "@/app/@util/function/fetch/getRecipeDetailData";
+import getRecipeDetailData from "@/app/util/function/fetch/getRecipeDetailData";
 
 interface PropsType {
   params: Promise<{ id: string }>;

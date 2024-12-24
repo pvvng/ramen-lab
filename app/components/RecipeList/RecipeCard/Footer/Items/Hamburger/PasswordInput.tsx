@@ -1,4 +1,4 @@
-import usePasswordInputHandler from "@/app/@util/hooks/usePasswordListHandler";
+import usePasswordInputHandler from "@/app/util/hooks/usePasswordListHandler";
 import { Dispatch, SetStateAction } from "react";
 
 export default function PasswordInput({

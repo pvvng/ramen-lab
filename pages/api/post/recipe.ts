@@ -1,10 +1,10 @@
-import checkMethod from "@/app/@util/function/api/checkMethod";
-import connectDatabase from "@/app/@util/function/api/connectDatabase";
-import { hashPassword } from "@/app/@util/function/general/crypt";
+import checkMethod from "@/app/util/function/api/checkMethod";
+import connectDatabase from "@/app/util/function/api/connectDatabase";
+import { hashPassword } from "@/app/util/function/general/crypt";
 import {
   validateIngredient,
   validateRequest,
-} from "@/app/@util/function/general/validation/validateRecipeRequest";
+} from "@/app/util/function/general/validation/validateRecipeRequest";
 import { AWSImageItmeType } from "@/types/aws-image";
 import { NextApiRequest, NextApiResponse } from "next";
 

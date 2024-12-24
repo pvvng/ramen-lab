@@ -1,10 +1,10 @@
 import { ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { NextApiRequest, NextApiResponse } from "next";
 import { AWSImageItmeType } from "@/types/aws-image";
-import checkMethod from "@/app/@util/function/api/checkMethod";
-import getS3Client from "@/app/@util/function/api/s3Client";
-import { checkMissingKey } from "@/app/@util/function/api/checkMissingKey";
-import { bucketName, region } from "@/app/@util/function/api/enviroments";
+import checkMethod from "@/app/util/function/api/checkMethod";
+import getS3Client from "@/app/util/function/api/s3Client";
+import { checkMissingKey } from "@/app/util/function/api/checkMissingKey";
+import { bucketName, region } from "@/app/util/function/api/enviroments";
 
 // S3 클라이언트 초기화
 const s3Client = getS3Client();

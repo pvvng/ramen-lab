@@ -1,4 +1,4 @@
-import usePostRecipe from "@/app/@util/hooks/usePostRecipe";
+import usePostRecipe from "@/app/util/hooks/usePostRecipe";
 
 interface PropsType {
   name: string;

@@ -3,7 +3,7 @@
 // type
 import { ObjectId } from "mongodb";
 // custom hook
-import useLikeButtonHandler from "@/app/@util/hooks/useLikeButtonHandler";
+import useLikeButtonHandler from "@/app/util/hooks/useLikeButtonHandler";
 // svg
 import { HeartSVG } from "../../SVGContainer";
 

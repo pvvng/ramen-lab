@@ -1,7 +1,7 @@
 import { AWSImageItmeType, AWSImageStoreType } from "@/types/aws-image";
 import { create } from "zustand";
-import decomposeHangul from "../@util/function/general/koreanWord/deComposeHangul";
-import isSimilar from "../@util/function/general/koreanWord/isSimilar";
+import decomposeHangul from "../util/function/general/koreanWord/deComposeHangul";
+import isSimilar from "../util/function/general/koreanWord/isSimilar";
 
 interface AWSImageStore {
   images: AWSImageStoreType[]; // 원본 배열

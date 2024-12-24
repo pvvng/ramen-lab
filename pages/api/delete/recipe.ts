@@ -1,5 +1,5 @@
-import checkMethod from "@/app/@util/function/api/checkMethod";
-import connectDatabase from "@/app/@util/function/api/connectDatabase";
+import checkMethod from "@/app/util/function/api/checkMethod";
+import connectDatabase from "@/app/util/function/api/connectDatabase";
 import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 

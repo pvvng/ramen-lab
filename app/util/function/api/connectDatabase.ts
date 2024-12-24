@@ -6,7 +6,7 @@ export default async function connectDatabase() {
 
   try {
     db = (await connectDB).db("ramen-lab");
-  } catch (error) {
+  } catch {
     return { message: "Database connection failed", status : 500, isFailed : true };
   }
 

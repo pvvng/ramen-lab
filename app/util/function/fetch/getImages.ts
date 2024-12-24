@@ -4,7 +4,7 @@ import processError from "./processError";
 
 export default async function getImages() {
   try {
-    let res = await axios.get<AWSImageItmeType[]>("/api/get/image-list");
+    const res = await axios.get<AWSImageItmeType[]>("/api/get/image-list");
     return res.data;
   } catch (error) {
     processError(error);

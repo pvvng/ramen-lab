@@ -1,6 +1,6 @@
 "use client";
 
-import usePatchReport from "@/app/@util/hooks/usePatchReport";
+import usePatchReport from "@/app/util/hooks/usePatchReport";
 import { ObjectId } from "mongodb";
 
 export default function Report({ id }: { id: ObjectId }) {
